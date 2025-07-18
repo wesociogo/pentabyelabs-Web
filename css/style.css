@@ -1,0 +1,376 @@
+/* style.css */
+
+/* ------------------------- */
+/* ----- 0. ROOT & GLOBALS -- */
+/* ------------------------- */
+:root {
+    --dark-bg: #111827;
+    --panel-bg: #1f2937;
+    --primary: #3b82f6;
+    --primary-glow: rgba(59, 130, 246, 0.4);
+    --text-color: #f9fafb;
+    --text-muted: #9ca3af;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Rubik', sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 5%;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* ------------------------- */
+/* ----- 1. ANIMATIONS ----- */
+/* ------------------------- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------------- */
+/* ----- 2. REUSABLE COMPONENTS -- */
+/* ------------------------- */
+.btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px var(--primary-glow);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+}
+
+/* NEW BUTTON STYLE */
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--panel-bg);
+    padding: 10px 24px;
+}
+
+.btn-outline:hover {
+    background-color: var(--panel-bg);
+    border-color: var(--panel-bg);
+}
+
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title.text-start { text-align: left; }
+
+
+/* ------------------------- */
+/* ----- 3. HEADER & NAV --- */
+/* ------------------------- */
+.main-header {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+.main-header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img { height: 80px; }
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li { margin-left: 25px; }
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-color);
+}
+.nav-links a.btn { color: white; }
+
+.hamburger { display: none; } /* Initially hidden on desktop */
+/* --------------------------------- */
+/* ----- 7. RESPONSIVE & MOBILE ---- */
+/* --------------------------------- */
+
+/* This code only applies to screens 992px wide or smaller */
+@media (max-width: 992px) {
+    /* 1. Hide the desktop nav links by moving them off-screen */
+    /*    and style them as a full-screen mobile overlay. */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* vh = viewport height */
+        background: var(--dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    /* 2. When the menu has the .active class, slide it into view */
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin: 20px 0; /* Space out the links vertically */
+    }
+
+    /* 3. Make the hamburger button visible on mobile */
+    .hamburger {
+        display: block; /* Show the button */
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001; /* Keep it on top of the overlay */
+        
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* 4. Animate the hamburger into an 'X' when it has the .active class */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* ------------------------- */
+/* ----- 4. PAGE SECTIONS -- */
+/* ------------------------- */
+.hero-section {
+    padding: 100px 0;
+    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 40%);
+}
+.hero-section h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    line-height: 1.2;
+}
+.hero-section .lead {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: var(--text-muted);
+}
+
+.content-section {
+    padding: 80px 0;
+}
+
+.service-card {
+    background-color: var(--panel-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #374151;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.service-card h3 {
+    font-family: var(--font-heading);
+    color: white;
+    margin-bottom: 1rem;
+}
+.service-card p {
+    color: var(--text-muted);
+}
+
+.placeholder-graphic img{
+    height: 300px;
+    width: 98%;
+    border-radius: 12px;
+    border: 4px solid var(--primary);
+}
+
+/* ------------------------- */
+/* ----- 5. FOOTER --------- */
+/* ------------------------- */
+.main-footer {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-muted);
+    border-top: 1px solid var(--panel-bg);
+    margin-top: 50px;
+}
+
+/* --------------------------------- */
+/* ----- 6. TEAM SECTION STYLES ---- */
+/* --------------------------------- */
+.team-card {
+    background-color: var(--panel-bg);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #374151;
+    height: 100%;
+}
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+.team-name {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: white;
+    margin: 0;
+}
+.team-title {
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.team-bio {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+.social-links {
+    margin-top: 20px;
+}
+.social-links a {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary);
+}
+
+
+/* --------------------------------- */
+/* ----- 7. RESPONSIVE & MOBILE ---- */
+/* --------------------------------- */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+
+    .hamburger {
+        display: block;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001; /* Must be above nav-links */
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .hero-section h1 { font-size: 2.5rem; }
+}
