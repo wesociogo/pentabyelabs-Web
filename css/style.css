@@ -138,6 +138,46 @@ body {
 .nav-links a:hover, .nav-links a.active {
     color: var(--text-color);
 }
+/* -------------------------------------- */
+/* ----- 9. NAV LINK POPUP LOGO STYLES ---- */
+/* -------------------------------------- */
+
+/* The container for the link and the popup. 
+   Position: relative is CRUCIAL for positioning the absolute child. */
+   .learning-link-wrapper {
+    position: relative;
+}
+
+/* The popup image itself (initially hidden) */
+.popup-logo {
+    /* Positioning */
+    position: absolute;
+    top: 100%; /* Position it right below the nav item */
+    left: 50%;
+    transform: translateX(-50%); /* Horizontally center it */
+    margin-top: 15px; /* Add some space below the nav bar */
+    z-index: 10;
+
+    /* Appearance */
+    height: 100px; /* Adjust size as needed */
+    width: auto;
+    background-color: var(--panel-bg);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+    /* Animation - Initial State */
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px); /* Start slightly lower */
+    pointer-events: none; /* Prevents the invisible image from blocking clicks */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/* The magic: Show and animate the logo when hovering the parent wrapper */
+.learning-link-wrapper:hover .popup-logo {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Move to final position */
+}
 .nav-links a.btn { color: white; }
 
 .hamburger { display: none; } /* Initially hidden on desktop */
@@ -373,4 +413,112 @@ body {
     }
 
     .hero-section h1 { font-size: 2.5rem; }
+}
+/* ---------------------------------- */
+/* ----- 8. CONTACT PAGE STYLES ---- */
+/* ---------------------------------- */
+
+.contact-info-block {
+    margin-bottom: 30px;
+    background-color: var(--panel-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #374151;
+}
+
+.icon-text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.icon-text i {
+    font-size: 1.2rem;
+    color: var(--primary);
+    width: 40px;
+    text-align: center;
+}
+
+.icon-text span, .icon-text a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s ease;
+}
+
+.icon-text a:hover {
+    color: var(--primary);
+}
+
+/* Style the iframes */
+iframe {
+    border: 1px solid #374151;
+    border-radius: 12px;
+}
+
+/* This filter trick helps make the default light Google Map look dark */
+.map-iframe {
+    filter: invert(0.9) hue-rotate(180deg);
+}
+
+/* ----- In the RESPONSIVE & MOBILE section ---- */
+/* Add this inside your existing @media (max-width: 992px) { ... } block */
+
+@media (max-width: 992px) {
+    /* ... your existing responsive styles for nav, hamburger, etc. ... */
+
+    /* Add this rule for the contact page on mobile */
+    .contact-info-block {
+        margin-top: 40px; /* Adds space between form and info on mobile */
+    }
+}
+/* ---------------------------------- */
+/* ----- 8b. CUSTOM FORM STYLES ---- */
+/* ---------------------------------- */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 90%;
+    padding: 12px 15px;
+    background-color: var(--panel-bg);
+    border: 1px solid #374151;
+    border-radius: 8px;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+#thank-you-message {
+    background-color: var(--panel-bg);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid var(--primary);
+}
+
+#thank-you-message h3 {
+    font-family: var(--font-heading);
+    color: white;
+    margin-bottom: 1rem;
 }

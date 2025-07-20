@@ -31,12 +31,24 @@
             
             <!-- This is the TARGET menu we will show/hide -->
             <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="why-choose-us.html">Why Us</a></li>
                 <li><a href="our-team.html">Our Team</a></li>
-                <li><a href="https://learn.pentabytelabs.com" target="_blank" class="btn btn-outline">Start Learning</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Contact Us</a></li>
-            </ul>
+                <li><a href="careers.html">Blogs/Careers</a></li>
+                <li class="learning-link-wrapper">
+                    <a href="https://learn.pentabytelabs.com" target="_blank">
+                      Start Learning
+                    </a>
+                    
+                    <!-- The popup image that will appear on hover -->
+                    <!-- Make sure the path to your logo is correct -->
+                    <img src="assets/images/learn-with-pentabyte-logo.png" alt="Learn with Pentabyte Labs Logo" class="popup-logo">
+                </li>
+                <!-- Set this link as active -->
+                <li>
+                  <a href="contact.html" class="btn btn-primary active">Contact Us</a>
+                </li>
+              </ul>
     
             <!-- This is the TRIGGER button -->
             <button class="hamburger" id="hamburger-button" aria-label="Open Menu">
@@ -138,7 +150,7 @@
     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <p>© 2023 Pentabyte Labs. All Rights Reserved.</p>
+            <p>© 2019 Pentabyte Labs. All Rights Reserved.</p>
         </div>
     </footer>
 
