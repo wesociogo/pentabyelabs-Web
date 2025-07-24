@@ -29,28 +29,23 @@
                 <img src="assets/images/pentabyte-logo.png" alt="Pentabyte Labs Logo">
             </a>
             
-            <!-- This is the TARGET menu we will show/hide -->
             <ul class="nav-links" id="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="our-team.html">Our Team</a></li>
-                <li><a href="careers.html">Blogs/Careers</a></li>
+                <li><a href="careers.html">Careers/Blogs</a></li>
                 <li class="learning-link-wrapper">
-                    <a href="https://learn.pentabytelabs.com" target="_blank">
+                    <a href="https://youtube.com/@learnwithpentabytelabs?si=Dhpq4jud0cym0ylX" target="_blank">
                       Start Learning
                     </a>
-                    
-                    <!-- The popup image that will appear on hover -->
-                    <!-- Make sure the path to your logo is correct -->
                     <img src="assets/images/learn-with-pentabyte-logo.png" alt="Learn with Pentabyte Labs Logo" class="popup-logo">
                 </li>
-                <!-- Set this link as active -->
                 <li>
-                  <a href="contact.html" class="btn btn-primary active">Contact Us</a>
+                  <!-- The 'active' class is removed here; JS will handle it correctly -->
+                  <a href="contact.html" class="btn btn-primary">Contact Us</a>
                 </li>
               </ul>
     
-            <!-- This is the TRIGGER button -->
             <button class="hamburger" id="hamburger-button" aria-label="Open Menu">
                 <span></span>
                 <span></span>
@@ -64,8 +59,8 @@
         <section class="hero-section">
             <div class="container text-center">
                 <h1 class="fade-in-section">Building the Scalable, Intelligent Software That Powers Your Business</h1>
-                <p class="lead fade-in-section">We are your on-demand technology partner, specializing in custom development, AI/ML solutions, and quality engineering to turn your vision into reality.</p>
-                <a href="contact.html" class="btn btn-primary btn-lg fade-in-section">Schedule a Consultation</a>
+                <p class="lead fade-in-section">We are your on-demand technology partner, committed to transforming ideas into powerful digital solutions. From custom software development and AI/ML innovations to end-to-end quality engineering, we bring technology that scales with your vision. Whether you're building from scratch or optimizing existing systems, we’re here to drive your success, fast, reliable, and tailored. <br> <br> </p>
+                <a href="contact.html" class="btn btn-primary btn-lg fade-in-section hero-cta-btn">Schedule a Consultation</a>
             </div>
         </section>
 
@@ -75,52 +70,65 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="service-card">
+                        <i class="fas fa-display service-icon"></i>
                         <h3>Web & App Development</h3>
                         <p>Crafting high-performance, scalable web and mobile applications tailored to your business needs.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-card">
+                        <i class="fas fa-brain service-icon"></i>
                         <h3>AI & Machine Learning</h3>
                         <p>Leveraging data to build intelligent models that automate processes and unlock predictive insights.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col d-flex">
                     <div class="service-card">
-                        <h3>Automation & QA</h3>
-                        <p>Ensuring flawless performance and reliability through rigorous quality engineering and automation.</p>
+                        <i class="fas fa-briefcase service-icon"></i>
+                        <h3>ITeS & BPO</h3>
+                        <p>Enhance your business operations with our IT-enabled Services and Business Process Outsourcing, delivering efficiency and cost-savings for non-core functions.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Why Choose Us Section -->
+        <!-- Why Choose Us Section (REVISED) -->
         <section class="container content-section fade-in-section">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <h2 class="section-title text-start">An Extension of Your Team</h2>
-                    <p>We move beyond a typical client-vendor relationship. At Pentabyte Labs, we embed ourselves as a dedicated partner, bringing agile methodologies and transparent communication to every project. We succeed when you succeed.</p>
-                    <a href="why-choose-us.html" class="btn btn-secondary">Discover Our Process</a>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="section-title text-start">Your Strategic Technology Partner</h2>
+                    <p>We're more than just developers; we're problem-solvers who integrate with your team to build impactful solutions. We dive deep into your goals to ensure the technology we build delivers real business value.</p>
+                    
+                    <ul class="feature-list">
+                        <li><i class="fas fa-comments"></i><div><strong>Transparent Collaboration:</strong> You get constant updates and direct access to our team. We believe in building partnerships through open communication.</div></li>
+                        <li><i class="fas fa-sync-alt"></i><div><strong>Agile & Adaptive Process:</strong> Our flexible methodology allows us to iterate quickly, incorporate feedback, and deliver value at every stage of the project.</div></li>
+                        <li><i class="fas fa-bullseye"></i><div><strong>Focused on Your Success:</strong> We measure our success by yours. We are dedicated to delivering robust, scalable solutions that help you achieve your goals.</div></li>
+                    </ul>
+                    <a href="services.html" class="btn btn-secondary mt-3">Explore Our Services</a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <div class="placeholder-graphic">
-                        <img src="assets/images/Extension.jpg" alt="">
+                        <!-- 
+                            NEW IMAGE: Represents collaboration and strategy. 
+                            Download this image and save it to your 'assets/images/' folder.
+                            Then change the src to something like "assets/images/team-collaboration.jpg"
+                        -->
+                        <img src="assets/images/round-table.jpg" alt="A diverse team of professionals collaborating around a table, planning a project strategy.">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Team Section (NEW) -->
+        <!-- Team Section -->
         <section class="container content-section fade-in-section">
             <h2 class="section-title">Meet The Experts</h2>
             <div class="row justify-content-center g-5">
-                <!-- Team Member 1 -->
                 <div class="col-lg-5 col-md-6">
                     <div class="team-card">
-                        <img src="assets/images/Hrithvik.jpg" alt="Headshot of Jane Doe" class="team-photo">
-                        <h3 class="team-name">Hrithivk S Acharya</h3>
+                        <img src="assets/images/Hrithvik.jpg" alt="Headshot of Hrithivk S Acharya" class="team-photo">
+                        <h3 class="team-name">Hrithvik S Acharya</h3>
                         <p class="team-title">Founder & CEO</p>
-                        <p class="team-bio">With over 3 years in enterprise experince, Jane founded Pentabyte Labs to build a leaner, more agile technology partner for businesses.</p>
+                        <p class="team-bio">With a background in enterprise-scale software architecture, Hrithvik founded Penta Byte Labs to create a leaner, more agile technology partner for businesses ready to innovate. Combining technical depth with business insight, focus on building scalable solutions while driving financial strategy and sustainable growth. As Founder & CEO, He leads with a hands-on approach, bridging innovation, execution, and financial stewardship to fuel long-term success.</p>
                         <div class="social-links">
                             <a href="#" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
                             <a href="#" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
@@ -128,13 +136,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Team Member 2 -->
                 <div class="col-lg-5 col-md-6">
                     <div class="team-card">
-                        <img src="assets/images/Roshan K.jpg" alt="Headshot of Alex Chen" class="team-photo">
+                        <img src="assets/images/Roshan K.jpg" alt="Headshot of Roshan Keshav" class="team-photo">
                         <h3 class="team-name">Roshan Keshav</h3>
                         <p class="team-title">Co-Founder and CTO</p>
-                        <p class="team-bio">Alex lives at the intersection of data and automation, transforming raw data into tangible business advantages for our clients.</p>
+                        <p class="team-bio">With a sharp focus on data, automation, and intelligent systems, Roshan our Co-founder & CTO brings a future-ready mindset to every solution we build. He leads the technical vision at Penta Byte Labs, transforming raw data into scalable systems that drive real business outcomes. From AI-driven architectures to seamless automation, he ensures our technology stays ahead, powerful, efficient, and built to deliver impact.</p>
                         <div class="social-links">
                             <a href="#" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
                             <a href="#" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>

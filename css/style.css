@@ -87,8 +87,11 @@ body {
 }
 
 .btn-outline:hover {
-    background-color: var(--panel-bg);
-    border-color: var(--panel-bg);
+    background-color: var(--primary); /* Change background to primary blue */
+    border-color: var(--primary);     /* Match the border color */
+    color: white;                     /* Ensure text is readable */
+    transform: translateY(-3px);      /* Add the lift effect like the primary button */
+    box-shadow: 0 0 25px var(--primary-glow); /* Add the glow effect */
 }
 
 
@@ -97,10 +100,16 @@ body {
     font-size: 2.5rem;
     color: white;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem; 
 }
 
 .section-title.text-start { text-align: left; }
+
+/* NEW: Modifier for smaller section titles */
+.section-title--small {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
 
 
 /* ------------------------- */
@@ -142,59 +151,47 @@ body {
 /* ----- 9. NAV LINK POPUP LOGO STYLES ---- */
 /* -------------------------------------- */
 
-/* The container for the link and the popup. 
-   Position: relative is CRUCIAL for positioning the absolute child. */
    .learning-link-wrapper {
     position: relative;
 }
 
-/* The popup image itself (initially hidden) */
 .popup-logo {
-    /* Positioning */
     position: absolute;
-    top: 100%; /* Position it right below the nav item */
+    top: 100%; 
     left: 50%;
-    transform: translateX(-50%); /* Horizontally center it */
-    margin-top: 15px; /* Add some space below the nav bar */
+    transform: translateX(-50%); 
+    margin-top: 15px; 
     z-index: 10;
-
-    /* Appearance */
-    height: 100px; /* Adjust size as needed */
+    height: 100px; 
     width: auto;
     background-color: var(--panel-bg);
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    
-    /* Animation - Initial State */
     opacity: 0;
-    transform: translateX(-50%) translateY(10px); /* Start slightly lower */
-    pointer-events: none; /* Prevents the invisible image from blocking clicks */
+    transform: translateX(-50%) translateY(10px); 
+    pointer-events: none; 
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-/* The magic: Show and animate the logo when hovering the parent wrapper */
 .learning-link-wrapper:hover .popup-logo {
     opacity: 1;
-    transform: translateX(-50%) translateY(0); /* Move to final position */
+    transform: translateX(-50%) translateY(0); 
 }
 .nav-links a.btn { color: white; }
 
-.hamburger { display: none; } /* Initially hidden on desktop */
+.hamburger { display: none; } 
 /* --------------------------------- */
 /* ----- 7. RESPONSIVE & MOBILE ---- */
 /* --------------------------------- */
 
-/* This code only applies to screens 992px wide or smaller */
 @media (max-width: 992px) {
-    /* 1. Hide the desktop nav links by moving them off-screen */
-    /*    and style them as a full-screen mobile overlay. */
     .nav-links {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh; /* vh = viewport height */
+        height: 100vh; 
         background: var(--dark-bg);
         flex-direction: column;
         justify-content: center;
@@ -204,23 +201,21 @@ body {
         z-index: 1000;
     }
 
-    /* 2. When the menu has the .active class, slide it into view */
     .nav-links.active {
         transform: translateX(0);
     }
 
     .nav-links li {
-        margin: 20px 0; /* Space out the links vertically */
+        margin: 20px 0; 
     }
 
-    /* 3. Make the hamburger button visible on mobile */
     .hamburger {
-        display: block; /* Show the button */
+        display: block; 
         background: transparent;
         border: none;
         cursor: pointer;
         padding: 10px;
-        z-index: 1001; /* Keep it on top of the overlay */
+        z-index: 1001; 
         
     }
 
@@ -233,7 +228,6 @@ body {
         transition: all 0.3s ease-in-out;
     }
 
-    /* 4. Animate the hamburger into an 'X' when it has the .active class */
     .hamburger.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
@@ -249,25 +243,46 @@ body {
 /* ----- 4. PAGE SECTIONS -- */
 /* ------------------------- */
 .hero-section {
-    padding: 100px 0;
+    text-align: center;
+    padding: 60px 0; 
     background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 40%);
 }
 .hero-section h1 {
     font-family: var(--font-heading);
     font-size: 3.5rem;
-    max-width: 800px;
-    margin: 0 auto 1rem;
+    max-width: auto;
+    margin: 0 auto 1.5rem; 
     line-height: 1.2;
 }
+/* NOTE: The long hero paragraph is intentionally kept left-aligned for better readability. */
 .hero-section .lead {
     font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
+    max-width: 900px; 
+    margin: 0 auto 2.5rem;
     color: var(--text-muted);
 }
 
+.hero-cta-btn {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .content-section {
-    padding: 80px 0;
+    padding: 60px 0; 
+}
+
+/* MODIFIED: This rule now centers the text in all lead paragraphs within a content-section */
+.content-section .lead {
+    max-width: auto; /* As requested, allows it to fill the container width */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: center; /* This is the key change */
 }
 
 .service-card {
@@ -277,11 +292,12 @@ body {
     border: 1px solid #374151;
     transition: all 0.3s ease;
     height: 100%;
+    margin-bottom: 0; 
 }
 .service-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px white;
 }
 .service-card h3 {
     font-family: var(--font-heading);
@@ -290,9 +306,11 @@ body {
 }
 .service-card p {
     color: var(--text-muted);
+    text-align: left; 
 }
 
 .placeholder-graphic img{
+    margin-top: 10%;
     height: 300px;
     width: 98%;
     border-radius: 12px;
@@ -307,7 +325,7 @@ body {
     text-align: center;
     color: var(--text-muted);
     border-top: 1px solid var(--panel-bg);
-    margin-top: 50px;
+    margin-top: 60px; 
 }
 
 /* --------------------------------- */
@@ -321,6 +339,8 @@ body {
     border: 1px solid #374151;
     height: 100%;
 }
+
+
 .team-photo {
     width: 120px;
     height: 120px;
@@ -390,7 +410,7 @@ body {
         border: none;
         cursor: pointer;
         padding: 10px;
-        z-index: 1001; /* Must be above nav-links */
+        z-index: 1001; 
     }
 
     .hamburger span {
@@ -450,26 +470,18 @@ body {
     color: var(--primary);
 }
 
-/* Style the iframes */
 iframe {
     border: 1px solid #374151;
     border-radius: 12px;
 }
 
-/* This filter trick helps make the default light Google Map look dark */
 .map-iframe {
     filter: invert(0.9) hue-rotate(180deg);
 }
 
-/* ----- In the RESPONSIVE & MOBILE section ---- */
-/* Add this inside your existing @media (max-width: 992px) { ... } block */
-
 @media (max-width: 992px) {
-    /* ... your existing responsive styles for nav, hamburger, etc. ... */
-
-    /* Add this rule for the contact page on mobile */
     .contact-info-block {
-        margin-top: 40px; /* Adds space between form and info on mobile */
+        margin-top: 40px; 
     }
 }
 /* ---------------------------------- */
@@ -521,4 +533,140 @@ iframe {
     font-family: var(--font-heading);
     color: white;
     margin-bottom: 1rem;
+}
+
+.service-card {
+    background-color: var(--panel-bg);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #374151;
+    transition: all 0.3s ease;
+    height: 100%;
+    text-align: center; 
+}
+
+.service-icon {
+    font-size: 2.5rem; 
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.packages-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+    max-width: 1100px; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2rem;
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 40px; 
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.feature-list i {
+    position: absolute;
+    left: 0;
+    top: 5px; 
+    color: var(--primary);
+    font-size: 1.5rem; 
+}
+
+.feature-list strong {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* ---------------------------------- */
+/* ----- 10. CAREERS PAGE STYLES ---- */
+/* ---------------------------------- */
+
+.job-listing {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    background-color: var(--panel-bg);
+    padding: 30px 40px;
+    border-radius: 12px;
+    border: 1px solid #374151;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.job-listing:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.job-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.job-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-right: 30px;
+    line-height: 1; 
+}
+
+.job-title-location h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: white;
+    margin: 0;
+}
+
+.job-title-location p {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin: 5px 0 0 0;
+}
+
+.job-listing .btn {
+    margin-top: 20px;
+}
+
+.hiring-soon-panel {
+    background-color: var(--panel-bg);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px dashed #374151; 
+}
+
+.hiring-soon-panel h3 {
+    font-family: var(--font-heading);
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.hiring-soon-panel p {
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+@media (min-width: 768px) {
+    .job-listing {
+        flex-direction: row; 
+        align-items: center;
+    }
+    .job-listing .btn {
+        margin-left: auto; 
+        margin-top: 0;
+    }
 }
