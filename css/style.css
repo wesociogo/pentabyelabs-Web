@@ -499,10 +499,12 @@ iframe {
     color: var(--text-muted);
 }
 
+/* Replace the old block with this one */
 .form-group input,
 .form-group textarea,
 .form-group select {
-    width: 90%;
+    width: 100%; /* CHANGED: This makes all fields consistent */
+    box-sizing: border-box; /* ADDED: Ensures padding is included in the width */
     padding: 12px 15px;
     background-color: var(--panel-bg);
     border: 1px solid #374151;
@@ -669,4 +671,23 @@ iframe {
         margin-left: auto; 
         margin-top: 0;
     }
+}
+/* Add this to the end of css/style.css */
+
+/* ---------------------------------- */
+/* ----- 11. PHONE INPUT STYLES ----- */
+/* ---------------------------------- */
+
+.phone-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.phone-input-group select {
+    flex: 0 0 120px; /* Do not grow, do not shrink, base width of 120px */
+}
+
+.phone-input-group input {
+    flex: 1 1 auto; /* Grow and shrink as needed */
+    width: auto; /* Override the default width */
 }

@@ -52,12 +52,8 @@
                 <a href="https://youtube.com/@learnwithpentabytelabs?si=Dhpq4jud0cym0ylX" target="_blank">
                   Start Learning
                 </a>
-                
-                <!-- The popup image that will appear on hover -->
-                <!-- Make sure the path to your logo is correct -->
                 <img src="assets/images/learn-with-pentabyte-logo.png" alt="Learn with Pentabyte Labs Logo" class="popup-logo">
             </li>
-            <!-- Set this link as active -->
             <li>
               <a href="contact.html" class="btn btn-primary active">Contact Us</a>
             </li>
@@ -82,23 +78,20 @@
         <div class="row g-5">
           <!-- Left Column: Contact Form -->
           <div class="col-lg-7">
-            <!-- Inside your <div class="col-lg-7"> on contact.html -->
             <h3>Send us a Message</h3>
 
-            <!-- The form that will be displayed -->
             <form
-              action="YOUR_GOOGLE_FORM_ACTION_URL_HERE"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSeLK44jB5y1c2-SebciqK213rhXA5fB7aIJaQB4QCO_kr5T5w/formResponse"
               method="POST"
               target="hidden_iframe"
               id="contact-form"
             >
               <div class="form-group">
                 <label for="full-name">Full Name</label>
-                <!-- Replace the name attribute with your Entry ID for the "Full Name" question -->
                 <input
                   type="text"
                   id="full-name"
-                  name="entry.YOUR_NAME_ID_HERE"
+                  name="entry.48067499"
                   placeholder="e.g., Jane Doe"
                   required
                 />
@@ -106,23 +99,36 @@
 
               <div class="form-group">
                 <label for="email">Email Address</label>
-                <!-- Replace the name attribute with your Entry ID for the "Email" question -->
                 <input
                   type="email"
                   id="email"
-                  name="entry.YOUR_EMAIL_ID_HERE"
+                  name="entry.1821519437"
                   placeholder="you@company.com"
                   required
                 />
               </div>
+              
+              <div class="form-group">
+                <label for="contact-number">Contact Number (with country code)</label>
+                <input
+                  type="tel"
+                  id="contact-number"
+                  name="entry.1892787155"
+                  placeholder="e.g., +91 9876543210"
+                  required
+                  pattern="^\+?[0-9\s]{7,15}$"
+                  title="Please enter a valid phone number, including country code."
+                />
+              </div>
 
+              <!-- THIS IS THE CORRECTED DROPDOWN BLOCK -->
               <div class="form-group">
                 <label for="service">Service of Interest</label>
-                <!-- Replace the name attribute with your Entry ID for the "Service" question -->
-                <select id="service" name="entry.YOUR_SERVICE_ID_HERE" required>
+                <select id="service" name="entry.1112709252" required>
                   <option value="" disabled selected>
                     Select a service...
                   </option>
+                  <!-- The `value` attributes now exactly match what Google Forms expects -->
                   <option value="Web & App Development">
                     Web & App Development
                   </option>
@@ -130,16 +136,15 @@
                     AI & Machine Learning
                   </option>
                   <option value="Automation & QA">Automation & QA</option>
-                  <option value="Other">Other</option>
+                  <option value="Others">Others</option> <!-- Corrected to "Others" to match your test link -->
                 </select>
               </div>
 
               <div class="form-group">
                 <label for="message">Your Message</label>
-                <!-- Replace the name attribute with your Entry ID for the "Message" question -->
                 <textarea
                   id="message"
-                  name="entry.YOUR_MESSAGE_ID_HERE"
+                  name="entry.272554165"
                   rows="5"
                   placeholder="Tell us about your project..."
                   required
@@ -151,15 +156,8 @@
               </button>
             </form>
 
-            <!-- This iframe is hidden and is the TARGET of the form submission. -->
-            <!-- This prevents the user from being redirected to the Google "Thank You" page. -->
-            <iframe
-              name="hidden_iframe"
-              id="hidden_iframe"
-              style="display: none"
-            ></iframe>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display: none"></iframe>
 
-            <!-- This message will be shown after the form is submitted successfully. -->
             <div id="thank-you-message" style="display: none">
               <h3>Thank You!</h3>
               <p>
@@ -175,29 +173,18 @@
             <div class="contact-info-block">
               <div class="icon-text">
                 <i class="fas fa-map-marker-alt"></i>
-                <span
-                  >Penta Byte Labs, N D residency, <br> SF 01, 3rd floor, Nanjappa layout, <br> Yelachenahalli, Bengaluru - 560078</span
-                >
+                <span>Penta Byte Labs, N D residency, <br> SF 01, 3rd floor, Nanjappa layout, <br> Yelachenahalli, Bengaluru - 560078</span>
               </div>
               <div class="icon-text">
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:pentabytelabs@gmail.com"
-                  >pentabytelabs@gmail.com</a
-                >
+                <a href="mailto:pentabytelabs@gmail.com">pentabytelabs@gmail.com</a>
               </div>
               <div class="icon-text">
                 <i class="fas fa-phone"></i>
-                <a href="tel:+91 7899589799">+91XXXXXX9799 -> click to call</a>
+                <a href="tel:+917899589799">+91 78995 89799</a>
               </div>
             </div>
 
-            <!-- 
-                        INSTRUCTION FOR GOOGLE MAPS:
-                        1. Go to maps.google.com and find your business location.
-                        2. Click "Share", then "Embed a map".
-                        3. Copy the HTML `<iframe>` code.
-                        4. Paste it here, replacing the entire iframe below.
-                    -->
             <iframe
               class="map-iframe"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d486.1435247659027!2d77.56408806816269!3d12.898190576673358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15003067571f%3A0x5d45a005b8a1aefc!2sND%20Residency%2C%20Nanjappa%20Layout!5e0!3m2!1sen!2sin!4v1753368023630!5m2!1sen!2sin"
