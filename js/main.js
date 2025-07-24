@@ -1,3 +1,5 @@
+
+
 // main.js
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -56,21 +58,30 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    const currentLocation = window.location.pathname; // Gets the current page path, e.g., "/contact.html"
+    // --- Active Nav Link Logic ---
+    const currentLocation = window.location.pathname; // Gets the current page path, e.g., "/services.html"
     const navLinks = document.querySelectorAll('.nav-links a');
 
+    // Determine if the current page is the home page.
+    const isHomePage = (currentLocation === '/' || currentLocation.endsWith('/index.html'));
+
     navLinks.forEach(link => {
-        // For the homepage, the path might be "/" or "/index.html". We check for both.
-        if (link.getAttribute('href') === 'index.html' && (currentLocation === '/' || currentLocation.includes('index.html'))) {
-            link.classList.add('active');
+        // Per the request, skip the 'Contact Us' button from this active state logic.
+        if (link.classList.contains('btn')) {
+            return;
         }
-        // For all other pages, we check if the link's href is INCLUDED in the current URL path.
-        // This is more robust than a direct match.
-        else if (link.getAttribute('href') !== 'index.html' && currentLocation.includes(link.getAttribute('href'))) {
-            // Check that it's not a button, which might also have an .active class
-            if (!link.classList.contains('btn')) {
-                link.classList.add('active');
-            }
+
+        const linkHref = link.getAttribute('href');
+        
+        // First, ensure no link is active by default.
+        link.classList.remove('active');
+
+        // Check if the link corresponds to the current page and should be active.
+        if (linkHref === 'index.html' && isHomePage) {
+            link.classList.add('active');
+        } else if (linkHref !== 'index.html' && currentLocation.endsWith(linkHref)) {
+            // Use .endsWith() for a precise match on other pages.
+            link.classList.add('active');
         }
     });
 
