@@ -29,18 +29,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- Hamburger Menu Logic ---
     const hamburgerButton = document.getElementById('hamburger-button');
     const navMenu = document.getElementById('nav-menu');
-    const mainHeader = document.querySelector('.main-header'); // Get the header element
 
-    if (hamburgerButton && navMenu && mainHeader) { // Check for all three elements
+    if (hamburgerButton && navMenu) {
         hamburgerButton.addEventListener('click', () => {
             // Toggle the .active class on the hamburger button
             hamburgerButton.classList.toggle('active');
             
             // Toggle the .active class on the navigation menu
             navMenu.classList.toggle('active');
-
-            // NEW: Toggle a class on the header to control its background and ensure opacity
-            mainHeader.classList.toggle('menu-is-open');
         });
     }
 
