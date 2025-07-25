@@ -1,5 +1,3 @@
-// main.js
-
 document.addEventListener("DOMContentLoaded", function() {
 
     // Intersection Observer for fade-in animations
@@ -45,6 +43,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
+            // NEW: Combine phone number parts before submission
+            const countryCode = document.getElementById('country-code').value;
+            const phoneNumberPart = document.getElementById('phone-number-part').value;
+            const fullPhoneNumberInput = document.getElementById('contact-number'); // The hidden input
+            fullPhoneNumberInput.value = countryCode + ' ' + phoneNumberPart;
+            // END NEW
+
             // A short delay to allow the form to submit to the hidden iframe
             // before we hide the form and show the thank you message.
             setTimeout(function() {
