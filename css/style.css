@@ -20,16 +20,13 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     margin: 0;
-    /* padding is removed here to allow for true full-width elements */
+    padding: 0 5%;
 }
 
 .container {
     max-width: 1140px;
-    width: 100%;
     margin: 0 auto;
-    /* FIX: Add generous padding here to keep content off the edges. 1.5rem = 24px */
-    padding: 0 1.5rem;
-    box-sizing: border-box;
+    padding: 0 10px;
 }
 
 /* ------------------------- */
@@ -184,7 +181,63 @@ body {
 .nav-links a.btn { color: white; }
 
 .hamburger { display: none; } 
+/* --------------------------------- */
+/* ----- 7. RESPONSIVE & MOBILE ---- */
+/* --------------------------------- */
 
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; 
+        background: var(--dark-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin: 20px 0; 
+    }
+
+    .hamburger {
+        display: block; 
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001; 
+        
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
 
 /* ------------------------- */
 /* ----- 4. PAGE SECTIONS -- */
@@ -329,31 +382,22 @@ body {
 /* ----- 7. RESPONSIVE & MOBILE ---- */
 /* --------------------------------- */
 @media (max-width: 992px) {
-    body{
-        margin: 0 auto;
-    }
-
     .nav-links {
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
+        width: 100%;
         height: 100vh;
         background: var(--dark-bg);
-        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         transform: translateX(100%);
-        visibility: hidden;
-        z-index: 1000;
-        transition: transform 0.3s ease-in-out, visibility 0s 0.3s;
+        transition: transform 0.3s ease-in-out;
     }
 
     .nav-links.active {
         transform: translateX(0);
-        visibility: visible;
-        transition: transform 0.3s ease-in-out, visibility 0s;
     }
 
     .nav-links li {
@@ -366,8 +410,7 @@ body {
         border: none;
         cursor: pointer;
         padding: 10px;
-        position: relative;
-        z-index: 1001;
+        z-index: 1001; 
     }
 
     .hamburger span {
